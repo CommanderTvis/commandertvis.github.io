@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i');
+
+body {
+	font-family: 'PT Sans', sans-serif
+}
+
+h1, h2 {
+	text-align: center
+}
+
+h1 {
+	font-size: 40pt;
+	font-style: italic
+}
+
+h2 {
+	font-size: 24pt
+}
+
+header {
+	width: 100%;
+	height: 200px;
+	background: #AFAFAF; 
+	border-bottom: 2px solid #444
+}
