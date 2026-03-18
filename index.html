@@ -3,6 +3,21 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Iaroslav (Rick) Postovalov — compiler and JVM developer. Rell language at ChromaWay, previously Kotlin/JVM compiler at JetBrains."
+        />
+        <meta property="og:title" content="Iaroslav Postovalov" />
+        <meta
+            property="og:description"
+            content="Compiler and JVM developer. Rell language at ChromaWay, previously Kotlin/JVM compiler at JetBrains."
+        />
+        <meta property="og:type" content="profile" />
+        <meta
+            property="og:url"
+            content="https://commandertvis.github.io/"
+        />
+        <link rel="canonical" href="https://commandertvis.github.io/" />
         <title>Iaroslav Postovalov</title>
         <style>
             body {
@@ -67,14 +82,18 @@
         </style>
     </head>
     <body>
-        <h1>Iaroslav (Rick) Postovalov</h1>
-        <p class="subtitle">
-            Compiler and JVM developer. Rell language at ChromaWay, previously
-            Kotlin/JVM compiler at JetBrains.
-        </p>
+        <header>
+            <h1>Iaroslav (Rick) Postovalov</h1>
+            <p class="subtitle">
+                Compiler and JVM developer. Rell language at ChromaWay,
+                previously Kotlin/JVM compiler at JetBrains.
+            </p>
+        </header>
 
         <hr />
 
+        <main>
+        <section>
         <h2>About</h2>
         <p>
             Compiler engineer and Kotlin specialist with deep JVM expertise.
@@ -84,6 +103,9 @@
             complex systems more accessible.
         </p>
 
+        </section>
+
+        <section>
         <h2>Contact</h2>
         <ul>
             <li>
@@ -119,6 +141,9 @@
             </li>
         </ul>
 
+        </section>
+
+        <section>
         <h2>Publications</h2>
 
         <div class="pub-item">
@@ -178,6 +203,9 @@
             >
         </div>
 
+        </section>
+
+        <section>
         <h2>Startups</h2>
 
         <div class="pub-item">
@@ -194,6 +222,9 @@
             consumer app.
         </div>
 
+        </section>
+
+        <section>
         <h2>Talks</h2>
 
         <div class="pub-item">
@@ -234,7 +265,7 @@
                 ><a
                     href="https://forest-school.am/"
                     data-archive="https://web.archive.org/web/20250611030856/https://forest-school.am/"
-                    >Forest (Лес)</a
+                    >Forest (<span lang="ru">Лес</span>)</a
                 >
                 summer school, online, February 2026</span
             ><br />
@@ -244,6 +275,9 @@
             miles, finished within 28 minutes of each other.
         </div>
 
+        </section>
+
+        <section>
         <h2>School contests</h2>
         <ul>
             <li>
@@ -342,6 +376,9 @@
             </li>
         </ul>
 
+        </section>
+
+        <section>
         <h2>Fun facts</h2>
         <ul>
             <li>
@@ -357,11 +394,16 @@
             </li>
         </ul>
 
+        </section>
+        </main>
+
         <hr />
 
+        <footer>
         <p style="font-size: 13px; color: #888">
             &copy; 2026 Iaroslav Postovalov
         </p>
+        </footer>
         <script>
             document.addEventListener("click", function (e) {
                 var a = e.target.closest("a[data-archive]");
@@ -369,16 +411,19 @@
                 e.preventDefault();
                 var original = a.href;
                 var archive = a.dataset.archive;
+                var w = window.open(original, "_blank");
+                // Probe whether the server is reachable at all.
+                // HEAD + no-cors: resolves on any HTTP response, rejects
+                // only on network failure (DNS, timeout, server down).
                 fetch(original, {
+                    method: "HEAD",
                     mode: "no-cors",
                     signal: AbortSignal.timeout(3000),
-                })
-                    .then(function () {
-                        window.open(original, "_blank");
-                    })
-                    .catch(function () {
-                        window.open(archive, "_blank");
-                    });
+                }).catch(function () {
+                    // Server unreachable — redirect the already-opened tab
+                    // to the Wayback Machine snapshot.
+                    if (w) w.location = archive;
+                });
             });
         </script>
     </body>
