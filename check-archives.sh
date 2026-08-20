@@ -10,7 +10,12 @@ FAIL=0
 urls=$(grep -oP 'data-archive="\K[^"]+' index.html)
 
 for url in $urls; do
-    status=$(curl -s -o /dev/null -w '%{http_code}' -L --max-time 30 "$url") || status="000"
+    # The Wayback Machine is slow to resolve bare (undated) snapshot URLs and
+    # rate-limits bursts, so allow generous time and retry transient failures.
+    # A real 404 still comes back as a status and fails the check.
+    status=$(curl -s -o /dev/null -w '%{http_code}' -L --max-time 90 \
+        --retry 3 --retry-delay 5 --retry-all-errors "$url") || status="000"
+    sleep 2
 
     if [[ "$status" =~ ^2 ]]; then
         echo "OK   $status  $url"
