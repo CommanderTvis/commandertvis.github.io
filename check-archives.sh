@@ -22,6 +22,7 @@ for url in $urls; do
         [[ "$status" =~ ^2 ]] && break
         sleep 10
     done
+    sleep 2
 
     if [[ "$status" =~ ^2 ]]; then
         echo "OK   $status  $url"
