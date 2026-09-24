@@ -13,9 +13,15 @@ for url in $urls; do
     # The Wayback Machine is slow to resolve bare (undated) snapshot URLs and
     # rate-limits bursts, so allow generous time and retry transient failures.
     # A real 404 still comes back as a status and fails the check.
-    status=$(curl -s -o /dev/null -w '%{http_code}' -L --max-time 90 \
-        --retry 3 --retry-delay 5 --retry-all-errors "$url") || status="000"
-    sleep 2
+    # Some snapshots occasionally time out outright (curl status 000) rather
+    # than answering with an HTTP code, so retry the whole request a few
+    # times on top of curl's own per-request retries.
+    for attempt in 1 2 3; do
+        status=$(curl -s -o /dev/null -w '%{http_code}' -L --max-time 90 \
+            --retry 3 --retry-delay 5 --retry-all-errors "$url") || status="000"
+        [[ "$status" =~ ^2 ]] && break
+        sleep 10
+    done
 
     if [[ "$status" =~ ^2 ]]; then
         echo "OK   $status  $url"
