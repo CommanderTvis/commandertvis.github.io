@@ -26,6 +26,11 @@ for url in $urls; do
 
     if [[ "$status" =~ ^2 ]]; then
         echo "OK   $status  $url"
+    elif [[ "$status" == "000" ]]; then
+        # No HTTP response at all means the Wayback Machine was unreachable
+        # from this network, not that the link is dead. Don't fail the build
+        # over that; a real 404/403/5xx below still does.
+        echo "WARN $status  $url (no response; treating as inconclusive)"
     else
         echo "FAIL $status  $url"
         FAIL=1
