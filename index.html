@@ -20,25 +20,50 @@
         <link rel="canonical" href="https://commandertvis.github.io/" />
         <title>Iaroslav Postovalov</title>
         <style>
+            @font-face {
+                font-family: "IBM Plex Sans";
+                src: url("assets/fonts/ibm-plex-sans/IBMPlexSans-Regular.woff2") format("woff2");
+                font-weight: 400;
+                font-style: normal;
+                font-display: swap;
+            }
+
+            @font-face {
+                font-family: "IBM Plex Sans";
+                src: url("assets/fonts/ibm-plex-sans/IBMPlexSans-Bold.woff2") format("woff2");
+                font-weight: 700;
+                font-style: normal;
+                font-display: swap;
+            }
+
+            @font-face {
+                font-family: "IBM Plex Sans";
+                src: url("assets/fonts/ibm-plex-sans/IBMPlexSans-Italic.woff2") format("woff2");
+                font-weight: 400;
+                font-style: italic;
+                font-display: swap;
+            }
+
             body {
                 font-family:
                     "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
-                font-size: 16px;
+                font-size: 1rem;
                 line-height: 1.6;
                 max-width: 720px;
                 margin: 40px auto;
                 padding: 0 20px;
                 color: #222;
                 background: #fff;
+                overflow-wrap: anywhere;
             }
 
             h1 {
-                font-size: 26px;
+                font-size: 1.625rem;
                 margin-bottom: 4px;
             }
 
             h2 {
-                font-size: 20px;
+                font-size: 1.25rem;
                 margin-top: 32px;
                 margin-bottom: 8px;
             }
@@ -57,6 +82,41 @@
                 color: #609;
             }
 
+            a:focus-visible {
+                outline: 3px solid currentColor;
+                outline-offset: 3px;
+            }
+
+            .skip-link {
+                position: absolute;
+                top: 8px;
+                left: 20px;
+                padding: 8px 12px;
+                background: #fff;
+                transform: translateY(-200%);
+            }
+
+            .skip-link:focus {
+                transform: none;
+            }
+
+            .visually-hidden {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip-path: inset(50%);
+                white-space: nowrap;
+                border: 0;
+            }
+
+            .contact-list a {
+                display: inline-block;
+                padding-block: 8px;
+            }
+
             ul {
                 padding-left: 20px;
             }
@@ -67,7 +127,7 @@
 
             .subtitle {
                 color: #555;
-                font-size: 15px;
+                font-size: 0.9375rem;
                 margin-top: 0;
             }
 
@@ -79,9 +139,27 @@
             .pub-item {
                 margin-bottom: 16px;
             }
+
+            h3 {
+                font-size: 1rem;
+                margin: 0;
+            }
+
+            footer p {
+                font-size: 0.8125rem;
+                color: #555;
+            }
+
+            @media (max-width: 480px) {
+                body {
+                    margin-block: 24px;
+                    padding-inline: 16px;
+                }
+            }
         </style>
     </head>
     <body>
+        <a class="skip-link" href="#main-content">Skip to content</a>
         <header>
             <h1>Iaroslav (Rick) Postovalov</h1>
             <p class="subtitle">
@@ -92,9 +170,9 @@
 
         <hr />
 
-        <main>
-        <section>
-        <h2>About</h2>
+        <main id="main-content" tabindex="-1">
+        <section aria-labelledby="about">
+        <h2 id="about">About</h2>
         <p>
             Compiler engineer and Kotlin specialist with deep JVM expertise.
             Built cross-platform mathematical libraries, designed DSLs, and
@@ -105,9 +183,9 @@
 
         </section>
 
-        <section>
-        <h2>Contact</h2>
-        <ul>
+        <section aria-labelledby="contact">
+        <h2 id="contact">Contact</h2>
+        <ul class="contact-list">
             <li>
                 Résumé:
                 <a href="https://commandertvis.github.io/resume/"
@@ -149,12 +227,11 @@
 
         </section>
 
-        <section>
-        <h2>Publications</h2>
+        <section aria-labelledby="publications">
+        <h2 id="publications">Publications</h2>
 
         <div class="pub-item">
-            <strong>Compilation of mathematical expressions in Kotlin</strong
-            ><br />
+            <h3>Compilation of mathematical expressions in Kotlin</h3>
             <span class="pub-venue">arXiv preprint, February 2021</span><br />
             Interpreting mathematical expressions at runtime is a standard task
             in scientific software engineering. This article is dedicated to a
@@ -170,10 +247,8 @@
         </div>
 
         <div class="pub-item">
-            <strong
-                >NMPUD: a computer system for sampling and examining probability
-                distributions</strong
-            ><br />
+            <h3>NMPUD: a computer system for sampling and examining probability
+                distributions</h3>
             <span class="pub-venue"
                 >Information Technologies and Mathematical Modelling
                 (ITMM-2020), Tomsk, 2021</span
@@ -187,10 +262,8 @@
         </div>
 
         <div class="pub-item">
-            <strong
-                >Project of a computer system for sampling and examining
-                probability distributions</strong
-            ><br />
+            <h3>Project of a computer system for sampling and examining
+                probability distributions</h3>
             <span class="pub-venue"
                 >58th International Scientific Student Conference (ISSC),
                 Novosibirsk, April 2020</span
@@ -211,14 +284,12 @@
 
         </section>
 
-        <section>
-        <h2>Writing</h2>
+        <section aria-labelledby="writing">
+        <h2 id="writing">Writing</h2>
 
         <div class="pub-item">
-            <strong
-                >Rewriting a production compiler&rsquo;s IR with AI agents in
-                five weeks</strong
-            ><br />
+            <h3>Rewriting a production compiler&rsquo;s IR with AI agents in
+                five weeks</h3>
             <span class="pub-venue">August 2026</span><br />
             Detaching the runtime of
             <a href="https://gitlab.com/chromaway/rell">Rell</a>, Chromia&rsquo;s
@@ -235,8 +306,8 @@
 
         </section>
 
-        <section>
-        <h2>Startups</h2>
+        <section aria-labelledby="startups">
+        <h2 id="startups">Startups</h2>
 
         <div class="pub-item">
             <strong>Telegram social platform</strong> &mdash; Co-founder
@@ -262,14 +333,12 @@
 
         </section>
 
-        <section>
-        <h2>Talks</h2>
+        <section aria-labelledby="talks">
+        <h2 id="talks">Talks</h2>
 
         <div class="pub-item">
-            <strong
-                >Dynamic compilation of mathematical expressions with
-                Kotlin</strong
-            ><br />
+            <h3>Dynamic compilation of mathematical expressions with
+                Kotlin</h3>
             <span class="pub-venue"
                 ><a
                     href="https://snowone.ru/"
@@ -288,8 +357,7 @@
         </div>
 
         <div class="pub-item">
-            <strong>Analysis of random variable simulation algorithms</strong
-            ><br />
+            <h3>Analysis of random variable simulation algorithms</h3>
             <span class="pub-venue"
                 ><a
                     href="https://mca.nsu.ru/rasschool/2021/"
@@ -301,8 +369,7 @@
         </div>
 
         <div class="pub-item">
-            <strong>Tea, Empires, and the Fastest Sailing Ships on Earth</strong
-            ><br />
+            <h3>Tea, Empires, and the Fastest Sailing Ships on Earth</h3>
             <span class="pub-venue"
                 ><a
                     href="https://forest-school.am/"
@@ -319,8 +386,8 @@
 
         </section>
 
-        <section>
-        <h2>School contests</h2>
+        <section aria-labelledby="school-contests">
+        <h2 id="school-contests">School contests</h2>
         <ul>
             <li>
                 <strong
@@ -419,8 +486,8 @@
 
         </section>
 
-        <section>
-        <h2>Fun facts</h2>
+        <section aria-labelledby="fun-facts">
+        <h2 id="fun-facts">Fun facts</h2>
         <ul>
             <li>
                 Gave a
@@ -441,24 +508,35 @@
         <hr />
 
         <footer>
-        <p style="font-size: 13px; color: #888">
+        <p>
             &copy; 2026 Iaroslav Postovalov
         </p>
         </footer>
         <script>
+            document.querySelectorAll("a[data-archive]").forEach(function (a) {
+                var hint = document.createElement("span");
+                hint.className = "visually-hidden";
+                hint.textContent = " (opens in a new tab; may use an archived copy)";
+                a.appendChild(hint);
+            });
+
             document.addEventListener("click", function (e) {
                 var a = e.target.closest("a[data-archive]");
-                if (!a) return;
+                if (!a || e.defaultPrevented || e.button !== 0 ||
+                    e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
                 e.preventDefault();
                 var original = a.href;
                 var archive = a.dataset.archive;
                 var w = window.open(original, "_blank");
+                if (w) w.opener = null;
                 // Probe whether the server is reachable at all.
                 // HEAD + no-cors: resolves on any HTTP response, rejects
                 // only on network failure (DNS, timeout, server down).
                 fetch(original, {
                     method: "HEAD",
                     mode: "no-cors",
+                    credentials: "omit",
+                    referrerPolicy: "no-referrer",
                     signal: AbortSignal.timeout(3000),
                 }).catch(function () {
                     // Server unreachable — redirect the already-opened tab
