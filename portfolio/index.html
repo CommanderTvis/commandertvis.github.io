@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Selected product and developer-tooling work by Iaroslav (Rick) Postovalov."
+        />
+        <link rel="canonical" href="https://commandertvis.github.io/portfolio/" />
+        <title>Portfolio — Iaroslav Postovalov</title>
+        <link rel="preload" href="../assets/fonts/ibm-plex-sans/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="../assets/fonts/ibm-plex-sans/IBMPlexSans-Bold.woff2" as="font" type="font/woff2" crossorigin />
+        <style>
+            @font-face {
+                font-family: "IBM Plex Sans";
+                src: url("../assets/fonts/ibm-plex-sans/IBMPlexSans-Regular.woff2") format("woff2");
+                font-weight: 400;
+                font-display: block;
+            }
+
+            @font-face {
+                font-family: "IBM Plex Sans";
+                src: url("../assets/fonts/ibm-plex-sans/IBMPlexSans-Bold.woff2") format("woff2");
+                font-weight: 700;
+                font-display: block;
+            }
+
+            :root {
+                color: #222;
+                background: #fff;
+            }
+
+            body {
+                max-width: 960px;
+                margin: 40px auto;
+                padding: 0 20px;
+                font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+                font-size: 1rem;
+                line-height: 1.6;
+                overflow-wrap: anywhere;
+            }
+
+            a {
+                color: #1a0dab;
+            }
+
+            a:visited {
+                color: #609;
+            }
+
+            a:focus-visible {
+                outline: 3px solid currentColor;
+                outline-offset: 3px;
+            }
+
+            h1 {
+                margin-bottom: 4px;
+                font-size: 2rem;
+            }
+
+            h2 {
+                margin: 48px 0 8px;
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                margin: 0;
+                font-size: 1.25rem;
+            }
+
+            .subtitle {
+                max-width: 650px;
+                margin-top: 0;
+                color: #555;
+            }
+
+            .back-link {
+                display: inline-block;
+                margin-bottom: 12px;
+            }
+
+            .toc {
+                margin-top: 28px;
+                padding: 16px 20px;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+            }
+
+            .toc strong {
+                display: block;
+                margin-bottom: 4px;
+            }
+
+            .toc ul {
+                margin: 0;
+                padding-left: 20px;
+            }
+
+            .toc li {
+                margin: 4px 0;
+            }
+
+            .toc ul ul {
+                margin-top: 4px;
+            }
+
+            .case-study {
+                margin-top: 24px;
+                padding-top: 24px;
+                border-top: 1px solid #ccc;
+            }
+
+            .case-study p {
+                max-width: 720px;
+            }
+
+            .meta {
+                color: #555;
+                font-size: 0.9375rem;
+            }
+
+            .screenshots {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 16px;
+                margin-top: 20px;
+            }
+
+            figure {
+                margin: 0;
+            }
+
+            figure:first-child {
+                grid-column: 1 / -1;
+            }
+
+            .api-screenshots figure:first-child {
+                grid-column: auto;
+            }
+
+            img {
+                display: block;
+                width: 100%;
+                height: auto;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+            }
+
+            figcaption {
+                margin-top: 6px;
+                color: #555;
+                font-size: 0.875rem;
+            }
+
+            footer {
+                margin-top: 56px;
+                padding-top: 16px;
+                border-top: 1px solid #ccc;
+                color: #555;
+                font-size: 0.875rem;
+            }
+
+            @media (max-width: 640px) {
+                body {
+                    margin-block: 24px;
+                    padding-inline: 16px;
+                }
+
+                .screenshots {
+                    display: block;
+                }
+
+                figure {
+                    margin-bottom: 16px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <a class="back-link" href="../">Iaroslav Postovalov</a>
+            <h1>Portfolio</h1>
+            <p class="subtitle">
+                Selected work in developer tools, language tooling, and
+                programming-language experiences.
+            </p>
+            <nav class="toc" aria-label="Portfolio contents">
+                <strong>Contents</strong>
+                <ul>
+                    <li><a href="#tereditor">Tereditor</a></li>
+                    <li>
+                        <a href="#chromaway">ChromaWay</a>
+                        <ul>
+                            <li><a href="#playground">Rell Playground</a></li>
+                            <li><a href="#api-reference">Rell API reference generator</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <article class="case-study" aria-labelledby="tereditor">
+                <h2 id="tereditor">Tereditor</h2>
+                <p class="meta">
+                    <a href="https://github.com/CommanderTvis/tereditor">GitHub repository</a>
+                </p>
+                <p>
+                    A workbench for terminal coding agents: it keeps the CLI
+                    workflow while making context, worktrees, processes, and
+                    agent activity visible. I am building the desktop
+                    application and its Android companion as a practical
+                    environment for directing coding agents.
+                </p>
+                <div class="screenshots">
+                    <figure>
+                        <a href="../assets/portfolio/tereditor-workbench-github.png">
+                            <img
+                                src="../assets/portfolio/tereditor-workbench-github.png"
+                                alt="Tereditor repository screenshot showing the desktop workbench"
+                                loading="lazy"
+                            />
+                        </a>
+                        <figcaption>Desktop workbench from the project repository.</figcaption>
+                    </figure>
+                    <figure>
+                        <a href="../assets/portfolio/tereditor-claude-context.png">
+                            <img
+                                src="../assets/portfolio/tereditor-claude-context.png"
+                                alt="Tereditor Claude Code context pane listing instructions, tools, and skills with token counts"
+                                loading="lazy"
+                            />
+                        </a>
+                        <figcaption>Inspecting the context an agent starts with.</figcaption>
+                    </figure>
+                    <figure>
+                        <a href="../assets/portfolio/tereditor-start-work.png">
+                            <img
+                                src="../assets/portfolio/tereditor-start-work.png"
+                                alt="Tereditor Start work dialog for creating a new agent worktree"
+                                loading="lazy"
+                            />
+                        </a>
+                        <figcaption>Starting work in an isolated worktree.</figcaption>
+                    </figure>
+                    <figure>
+                        <a href="../assets/portfolio/tereditor-processes.png">
+                            <img
+                                src="../assets/portfolio/tereditor-processes.png"
+                                alt="Tereditor Processes pane showing agents and language servers in a process tree"
+                                loading="lazy"
+                            />
+                        </a>
+                        <figcaption>Seeing what agents and their tools are running.</figcaption>
+                    </figure>
+                    <figure>
+                        <a href="../assets/portfolio/tereditor-android.png">
+                            <img
+                                src="../assets/portfolio/tereditor-android.png"
+                                alt="Tereditor Android companion screens for connecting to a host and using an agent terminal"
+                                loading="lazy"
+                            />
+                        </a>
+                        <figcaption>Using a phone as a client for the host workbench.</figcaption>
+                    </figure>
+                    <figure>
+                        <a href="../assets/portfolio/tereditor-diagram.png">
+                            <img
+                                src="../assets/portfolio/tereditor-diagram.png"
+                                alt="A diagram drawn by a Tereditor agent in a companion pane"
+                                loading="lazy"
+                            />
+                        </a>
+                        <figcaption>Agents drawing diagrams beside the terminal.</figcaption>
+                    </figure>
+                </div>
+            </article>
+
+            <article class="case-study" aria-labelledby="chromaway">
+                <h2 id="chromaway">ChromaWay</h2>
+                <p class="meta">Rell language and developer tooling</p>
+
+                <section aria-labelledby="playground">
+                    <h3 id="playground">Rell Playground</h3>
+                    <p>
+                        A browser-based environment for experimenting with Rell.
+                        It combines an editor, compiler execution, SQL
+                        translation, and REPL workflows so developers can learn
+                        the language and share runnable examples.
+                        <a href="https://github.com/ChromiaProject/rell-playground">Source on GitHub</a>.
+                    </p>
+                    <div class="screenshots">
+                        <figure>
+                            <a href="../assets/portfolio/rell-playground.png">
+                                <img
+                                    src="../assets/portfolio/rell-playground.png"
+                                    alt="Rell Playground with Rell code on the left and generated SQL on the right"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <figcaption>Rell code and generated SQL side by side.</figcaption>
+                        </figure>
+                    </div>
+                </section>
+
+                <section aria-labelledby="api-reference">
+                    <h3 id="api-reference">Rell API reference generator</h3>
+                    <p>
+                        A documentation generator for Rell system libraries,
+                        turning source-level declarations into searchable,
+                        navigable API reference pages with namespaces,
+                        signatures, descriptions, and examples.
+                        <a href="https://github.com/ChromiaProject/rell/tree/dev/rell-dokka-plugin">Source on GitHub</a>.
+                    </p>
+                    <div class="screenshots api-screenshots">
+                        <figure>
+                            <a href="../assets/portfolio/rell-api-overview.png">
+                                <img
+                                    src="../assets/portfolio/rell-api-overview.png"
+                                    alt="Rell System Library API Reference landing page listing namespaces"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <figcaption>Generated API reference organized by namespace.</figcaption>
+                        </figure>
+                        <figure>
+                            <a href="../assets/portfolio/rell-api-function.png">
+                                <img
+                                    src="../assets/portfolio/rell-api-function.png"
+                                    alt="Rell API reference page documenting the try_call_catch function"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <figcaption>Detailed function reference with examples.</figcaption>
+                        </figure>
+                        <figure>
+                            <a href="../assets/portfolio/rell-api-example.png">
+                                <img
+                                    src="../assets/portfolio/rell-api-example.png"
+                                    alt="Rell API reference example page showing Ethereum signature recovery in JavaScript and Rell"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <figcaption>Long-form examples comparing JavaScript and Rell.</figcaption>
+                        </figure>
+                    </div>
+                </section>
+            </article>
+        </main>
+
+        <footer>
+            <a href="../">Back to the main page</a>
+        </footer>
+    </body>
+</html>
