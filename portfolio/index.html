@@ -69,6 +69,20 @@
                 font-size: 1.25rem;
             }
 
+            .project-heading {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .project-logo {
+                width: 48px;
+                height: 48px;
+                object-fit: cover;
+                border: 0;
+                border-radius: 10px;
+            }
+
             .subtitle {
                 max-width: 650px;
                 margin-top: 0;
@@ -202,7 +216,14 @@
 
         <main>
             <article class="case-study" aria-labelledby="tereditor">
-                <h2 id="tereditor">Tereditor</h2>
+                <h2 id="tereditor" class="project-heading">
+                    <img
+                        class="project-logo"
+                        src="../assets/portfolio/tereditor-logo.jpg"
+                        alt="Tereditor logo"
+                    />
+                    <span>Tereditor</span>
+                </h2>
                 <p class="meta">
                     <a href="https://github.com/CommanderTvis/tereditor">GitHub repository</a>
                     &middot;
